@@ -1,9 +1,12 @@
 import createFastContext from "./createFastContext";
 
-const { Provider, useStore } = createFastContext({
-  first: "",
-  last: "",
-});
+/*
+ * we need to call `useStore` from here.
+ * but we are stuck to passing it from main.tsx
+ * 
+ * expectation: import useStore from '../main.tsx';
+ * and use it here like normal hook;
+ */
 
 const TextInput = ({ value }: { value: "first" | "last" }) => {
   const [fieldValue, setStore] = useStore((store) => store[value]);
@@ -59,12 +62,10 @@ const ContentContainer = () => {
 
 function App() {
   return (
-    <Provider>
-      <div className="container">
-        <h5>App</h5>
-        <ContentContainer />
-      </div>
-    </Provider>
+    <div className="container">
+      <h5>App</h5>
+      <ContentContainer />
+    </div>
   );
 }
 
