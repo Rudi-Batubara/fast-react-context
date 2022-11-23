@@ -1,7 +1,8 @@
 import createFastContext from "./createFastContext";
 
 /*
- * we need to call `useStore` from here.
+ * we need to call `useStore` from main.tsx
+ * and implement it here like a normal hook
  * but we are stuck to passing it from main.tsx
  * 
  * expectation: import useStore from '../main.tsx';
